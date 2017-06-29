@@ -1,35 +1,72 @@
 import React, { Component } from 'react';
+import { AppRegistry, Text } from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
+import { COLOR, ThemeProvider } from 'react-native-material-ui';
 
-import {
-  StyleSheet,
-  ScrollView,
-  AppRegistry,
-  DrawerLayoutAndroid,
-  TextInput,
-  PixelRatio,
-  Text,
-  View
-} from 'react-native';
+// Scenes
+import IdentifyUserScene from './scenes/IdentifyUserScene'
+import NewUserScene from './scenes/NewUserScene'
+import PasswordScene from './scenes/PasswordScene'
+import HomeScene from './scenes/HomeScene'
 
-import UserTypeScreen from './screens/UserTypeScreen'
+// Models
+const UserModel = require('./models/UserModel')
 
-//import {
-//  MKTextField,
-//  MKColor,
-//  mdl,
-//} from 'react-native-material-kit';
 
-export default class Th extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Useless Placeholder' };
-  }
-  
-  render() {
-    return (
-      <UserTypeScreen/>
-    );
-  }
+const uiTheme = {
+    palette: {
+      primaryColor: COLOR.indigo500,
+    },
+    buttonRaised: {
+      container: {
+        backgroundColor: COLOR.indigo500,
+      },
+      text: {
+        color: '#FFFFFF'
+      }
+    },
+    toolbar: {
+        container: {
+            height: 50,
+        },
+    },
+};
+
+export default class CrowdCheck extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { userToken: '' }
+    }
+ 
+    render() {
+        var user = new UserModel
+        return (
+            <ThemeProvider uiTheme={uiTheme}>
+                <Router>
+                    <Scene key="user" hideNavBar={true} initial={user.isNewUser()}>
+                        <Scene key="identify"
+                          component={IdentifyUserScene}
+                        />
+                        <Scene
+                          key="newUser"
+                          component={NewUserScene}
+                        />
+                        <Scene
+                          key="password"
+                          component={PasswordScene}
+                        />
+                    </Scene>
+                    <Scene key="app" type="reset" hideNavBar={false} initial={!user.isNewUser()}>
+                        <Scene
+                          key="home"
+                          component={HomeScene}
+                          title="HOME"
+                          initial={true}
+                        />
+                    </Scene>
+                </Router>
+            </ThemeProvider>
+        );
+    }
 }
-
 

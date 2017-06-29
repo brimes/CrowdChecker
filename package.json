@@ -1,5 +1,5 @@
 {
-  "name": "Th",
+  "name": "CrowdCheck",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,10 +8,14 @@
   },
   "dependencies": {
     "react": "16.0.0-alpha.6",
+    "react-addons-pure-render-mixin": "^15.5.2",
     "react-native": "0.43.4",
-    "react-native-material-design": "^0.3.7",
+    "react-native-background-timer": "^1.0.2",
+    "react-native-geofence-monitor": "0.0.3",
     "react-native-material-design-styles": "^0.2.6",
     "react-native-material-kit": "^0.4.1",
+    "react-native-material-ui": "^1.9.0",
+    "react-native-router-flux": "3.38.0",
     "react-native-vector-icons": "^4.0.1"
   },
   "devDependencies": {
