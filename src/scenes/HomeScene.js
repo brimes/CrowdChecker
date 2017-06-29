@@ -12,7 +12,7 @@ class HomeScene extends Component {
 
 		window.setInterval(() => {
 			console.log('interval')
-		}, 5000)
+		}, 1000)
 		
 	    navigator.geolocation.getCurrentPosition(
 	      (position) => {
