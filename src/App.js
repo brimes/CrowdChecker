@@ -32,12 +32,12 @@ const uiTheme = {
     },
 };
 
-export default class CrowdCheck extends Component {
+export default class CrowdChecker extends Component {
     constructor(props) {
         super(props);
         this.state = { userToken: '' }
     }
- 
+
     render() {
         var user = new UserModel
         return (
@@ -69,4 +69,3 @@ export default class CrowdCheck extends Component {
         );
     }
 }
-
