@@ -13,9 +13,8 @@ services:
   development:
     privileged: true
     network_mode: "host"
-    image: "pinfake/android-react-native"
+    image: "ttdev.fidelize.com.br:5000/react-native-android"
     volumes:
-        - "/dev/bus/usb:/dev/bus/usb"
         - "devdata:/root"
         - "${HOME}:/userdata"
   dev:
