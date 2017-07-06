@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import CrowdCheck from './src/App';
+import CrowdChecker from './src/App';
 
-AppRegistry.registerComponent('CrowdCheck', () => CrowdCheck);
+AppRegistry.registerComponent('CrowdChecker', () => CrowdChecker);
