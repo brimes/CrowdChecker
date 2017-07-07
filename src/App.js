@@ -8,6 +8,7 @@ import IdentifyUserScene from './scenes/IdentifyUserScene'
 import NewUserScene from './scenes/NewUserScene'
 import PasswordScene from './scenes/PasswordScene'
 import HomeScene from './scenes/HomeScene'
+import LoginScene from './scenes/LoginScene'
 
 // Models
 const UserModel = require('./models/UserModel')
@@ -43,9 +44,9 @@ export default class CrowdChecker extends Component {
         return (
             <ThemeProvider uiTheme={uiTheme}>
                 <Router>
-                    <Scene key="user" hideNavBar={true} initial={user.isNewUser()}>
-                        <Scene key="identify"
-                          component={IdentifyUserScene}
+                    <Scene key="user" hideNavBar={true}>
+                        <Scene key="Login"
+                          component={LoginScene}
                         />
                         <Scene
                           key="newUser"

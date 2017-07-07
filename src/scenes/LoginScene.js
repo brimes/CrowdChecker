@@ -8,15 +8,15 @@ import { Alert, AppRegistry, Button, StyleSheet, Text, View } from 'react-native
 import { Actions } from 'react-native-router-flux';
 import Auth0 from 'react-native-auth0';
 
-const auth0 = new Auth0({ domain: 'charleycesar.auth0.com', clientId: 'dU5o46WOwEhYE1Xq3SHDKjD0hPIH4XmC' });
+const Autenticar = new Auth0({ domain: 'charleycesar.auth0.com', clientId: 'sUgUjz4Wb4AYdUgKU4fPeS74YTH6vNg3' });
 
-export default class Login extends Component {
+export default class LoginScene extends Component {
+
   _onLogin() {
-    auth0
+    Autenticar
         .webAuth
         .authorize({scope: 'openid email'})
-        .then(credentials =>
-              Alert.alert(
+        .then(credentials =>  Alert.alert(
                   'Success',
                   'AccessToken: ' + credentials.accessToken,
                   [
@@ -31,7 +31,7 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.header}>
-          Missions
+          CrowdChecker
         </Text>
         <Button onPress={this._onLogin} title="Entrar" />
       </View>
@@ -52,5 +52,3 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 });
-
-AppRegistry.registerComponent('Login', () => Login);
